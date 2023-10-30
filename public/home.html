@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h2>Wolcome to the Home Page</h2>
+    <p id="usernameDisplay">Username: </p>
+    <p>Content of your home page goes here...</p>
+    <form action="/logout" method="GET">
+        <button type="submit">Logout</button>
+    </form>
+
+    <script>
+        // JavaScript code to extract username from URL and display it
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        // Display the username in the designated HTML element
+        const usernameDisplay = document.getElementById('usernameDisplay');
+
+        if (username) {
+            usernameDisplay.innerText += username;
+        } else {
+            usernameDisplay.innerText += "Unknown";
+        }
+    </script>
+</body>
+</html>
